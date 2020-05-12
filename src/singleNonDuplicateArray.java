@@ -37,10 +37,33 @@ public class singleNonDuplicateArray {
         }
         return returnval;
     }
+    //more accurate with less run time and space complexity
+    public static int singleNonDuplicateMethod2(int[] nums) {
+        int i=0;
+        int count=0;
+        int returnval=0;
+        while(i<=nums.length && i!=nums.length-1)
+        {
+            count=1;
+            if(nums[i]==nums[i+1])
+            {
+                 count = 2;
+                 i=i+2;
+            } else
+            {
+                returnval=nums[i];
+                break;
+            }
+
+        }
+        return  returnval==0?nums[i]:returnval;
+    }
+
 
     public static void main( String[] args ){
-        int[] nums={1,2,2,3,3,4,1};
+        int[] nums={1,1,2,3,3,4,4,8,8};
         System.out.println(singleNonDuplicate(nums));
+        System.out.println(singleNonDuplicateMethod2(nums));
 
     }
 
