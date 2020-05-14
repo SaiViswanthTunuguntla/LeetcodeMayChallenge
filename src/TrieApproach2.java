@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+
 public class TrieApproach2 {
 
     private class TrieNode {
@@ -46,14 +49,25 @@ public class TrieApproach2 {
         //return true of current's endOfWord is true else return false.
         return current.endOfWord;
     }
+    public boolean startsWith(String prefix) {
+        TrieNode current=root;
+        for (int i = 0; i < prefix.length(); i++) {
+            char ch=prefix.charAt(i);
+            TrieNode node=current.children.get(ch);
+            if(node== null) return false;
+            current=node;
+        }
+        return true;
+    }
     public static void main( String[] args ){
         TrieApproach2 t= new TrieApproach2();
         t.insert("apple");
         t.insert("viswanth");
-        t.insert("app");
+        //t.insert("app");
+        System.out.println(t.root.children.entrySet());
         //System.out.println("Elements in List: "+t.elementData);
         System.out.println("Is string app available in list? "+t.search("app"));
-       // System.out.println("Is there anuy string starts with 'app'?"+t.startsWith("app"));
+       System.out.println("Is there anuy string starts with 'app'?"+t.startsWith("vis"));
     }
 
 
