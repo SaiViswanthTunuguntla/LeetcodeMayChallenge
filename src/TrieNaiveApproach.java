@@ -13,14 +13,11 @@ class TrieNaiveApproach
     /** Inserts a word into the trie. */
     public void insert(String word) {
         this.elementData.add(word);
-
     }
 
     /** Returns if the word is in the trie. */
     public boolean search(String word) {
-
         return elementData.contains(word);
-
     }
 
     /** Returns if there is any word in the trie that starts with the given prefix. */

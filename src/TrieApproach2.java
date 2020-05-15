@@ -1,9 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 
-
-
-
 public class TrieApproach2 {
 
     private class TrieNode {
