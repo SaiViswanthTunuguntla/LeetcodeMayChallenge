@@ -27,9 +27,42 @@ public class KadaneAlgo {
         }
         return max_so_far;
     }
+    static int maxSubArraySumMethod2(int a[])
+    {
+        int max_so_far=Integer.MIN_VALUE;
+        int max_ending_here=0;
+        for (int i : a) {
+            max_ending_here = max_ending_here + i;
+            max_so_far=Math.max(max_ending_here,max_so_far);
+            max_ending_here=Math.max(max_ending_here,0);
+        }
+        return max_so_far;
+    }
+
+    static int maxCircularSubArray(int a[])
+    {
+        int max_so_far=Integer.MIN_VALUE; int min_so_far=Integer.MAX_VALUE;
+        int max_ending_here=0; int min_ending_here=0; int total=0;
+        for (int i : a) {
+            max_ending_here = max_ending_here + i;
+            max_so_far=Math.max(max_ending_here,max_so_far);
+            max_ending_here=Math.max(max_ending_here,0);
+
+            min_ending_here = min_ending_here + i;
+            min_so_far=Math.min(min_ending_here,min_so_far);
+            min_ending_here=Math.min(min_ending_here,0);
+
+            total+=i;
+        }
+        System.out.println("max_so_far: "+max_so_far+" min_so_far: "+min_so_far+" total: "+total);
+        return max_so_far<0?max_so_far:Math.max(max_so_far,total-min_so_far);
+    }
+
+
     public static void main( String[] args ){
-        int[] a=  {2,-2,2,7,8,0};
-       System.out.println(maxSubArraySum(a));
+        int[] a=  {5,-3,5};
+       System.out.println(maxSubArraySumMethod2(a));
+       System.out.println(maxCircularSubArray(a));
 
 
 
