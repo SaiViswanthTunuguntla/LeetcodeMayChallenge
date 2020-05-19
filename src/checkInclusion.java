@@ -4,27 +4,25 @@ import java.util.List;
 public class checkInclusion {
 
     public static boolean checkInclusion(String s1, String s2) {
-   // List<Integer> alist= new ArrayList<>();
+
     int m=s2.length(); int n=s1.length();
         if(n>m) return false;
-    int[] charArr=new int[26];
+        int[] charArr=new int[26];
 
         for (int i = 0; i < n; i++) {
         charArr[s2.charAt(i)-'a']++;
         charArr[s1.charAt(i)-'a']--;
-    }
+        }
         for (int i = n; i <m ; i++) {
         if(allZeros(charArr)){
-            //alist.add(i-n);
             return true;
         }
         charArr[s2.charAt(i)-'a']++;
         charArr[s2.charAt(i-n)-'a']--;
-    }
+        }
         if(allZeros(charArr)){
-        //alist.add(m-n);
             return true;
-    }
+        }
         return false;
     }
     static  boolean allZeros(int[] charArr){
