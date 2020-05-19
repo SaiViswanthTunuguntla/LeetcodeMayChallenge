@@ -35,10 +35,10 @@ public class FindAnagrams {
     }
 
     public static void main(String[] args) {
-        String s="cbaebabacd";
-        String p="abc";
-     //   List<Integer> anagrams = findAnagrams(s, p);
-        //System.out.println(anagrams);
+        String s="eidbaooo";
+        String p="ab";
+      List<Integer> anagrams = findAnagrams(s, p);
+        System.out.println(anagrams);
 
     }
 }
